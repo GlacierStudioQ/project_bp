@@ -52,10 +52,17 @@ func main() {
 
 		c.String(200, "pong"+strconv.Itoa(count))
 	})
+	
+	r.GET("/ping/:test", func(c *gin.Context) {
+		test := c.Params.ByName("test")
+		message := "name1:" + test
+		c.String(200, message)
+	})
 
-	r.GET("/user/:name", func(c *gin.Context) {
-		name := c.Params.ByName("name")
-		message := "Hello " + name
+	r.GET("/user/:name1/two/:name2", func(c *gin.Context) {
+		name1 := c.Params.ByName("name1")
+		name2 := c.Params.ByName("name2")
+		message := "name1:" + name1 + ", name2:" + name2
 		c.String(200, message)
 	})
 
