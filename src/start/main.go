@@ -35,6 +35,22 @@ func main() {
 	store := sessions.NewCookieStore([]byte("secret"))
 	r.Use(sessions.Sessions("mysession", store))
 
+
+
+	// ------------------------------------------------
+	
+	r.GET("/volume", func(c *gin.Context) {
+		// TODO 调用service
+		volumes := service.GetVolumeAll()
+		
+		c.JSON(200, gin.H{"volumes": volumes})
+	})
+
+	// ------------------------------------------------
+
+
+
+
 	r.GET("/ping", func(c *gin.Context) {
 
 		session := sessions.Default(c)
@@ -98,6 +114,6 @@ func main() {
 }
 
 func getDB() (db *sql.DB) {
-	db, _ = sql.Open("mysql", "rache:21431@tcp(localhost:3306)/graduate_design?collation=utf8_general_ci&parseTime=true")
+	db, _ = sql.Open("mysql", "rache:21431@tcp(localhost:3306)/bipubipu?collation=utf8_general_ci&parseTime=true")
 	return
 }
