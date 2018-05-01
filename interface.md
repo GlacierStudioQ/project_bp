@@ -2,9 +2,9 @@
 
 1. Get an user information（需验证）
 
-获取用户信息
+    获取用户信息
 
-` GET  /user/:uid`
+    ` GET  /user/:uid`
 
 ### volumes （谱册）
 
