@@ -4,6 +4,10 @@ import (
 	"time"
 )
 
+const(
+	TAB_FIELD_KEY = "form"
+)
+
 type User struct {
 	Uid          string `json:"uid" form:"f_uid"`
 	Pwd          string `json:"pwd" form:"f_pwd"`
@@ -17,6 +21,7 @@ type Favorite struct {
 	CreateTime   time.Time `json:"createTime" form:"f_create_time"`
 }
 
+// 这里字段名首字母必须大写，才能被外面访问到
 type Volume struct {
 	Vid          string    `json:"vid" form:"f_vid"`
 	Name         string    `json:"name" form:"f_name"`

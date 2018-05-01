@@ -46,6 +46,14 @@ func main() {
 		c.JSON(200, gin.H{"volumes": volumes})
 	})
 
+	r.GET("/volume/user/:uid", func(c *gin.Context) {
+		
+		uid := c.Params.ByName("uid")
+		// TODO 调用service
+		volumes := service.GetVolumesByUserId(uid)
+		
+		c.JSON(200, gin.H{"volumes": volumes})
+	})
 	// ------------------------------------------------
 
 
